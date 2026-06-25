@@ -1,0 +1,314 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lead Management System</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* =====================
+           GLOBAL STYLES
+        ====================== */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+        }
+
+        /* =====================
+           NAVBAR
+        ====================== */
+        .navbar {
+            background: linear-gradient(90deg, #6366f1, #22c55e);
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            padding: 25px;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* =====================
+           CARD
+        ====================== */
+        .card {
+            background: #111827;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            overflow-x: auto;
+        }
+
+        /* =====================
+           TABLE
+        ====================== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            min-width: 600px;
+        }
+
+        th {
+            background: #1f2937;
+            color: #93c5fd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #1f2937;
+        }
+
+        tr:hover {
+            background: #1e293b;
+            transition: 0.2s;
+        }
+
+        /* =====================
+           BUTTONS (UPDATED)
+        ====================== */
+        .btn {
+            padding: 7px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-right: 5px;
+            transition: 0.2s;
+        }
+
+        /* ADD BUTTON */
+        .btn-add {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-add:hover {
+            background: #059669;
+        }
+
+        /* EDIT BUTTON */
+        .btn-edit {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #2563eb;
+        }
+
+        /* DELETE BUTTON */
+        .btn-delete {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: #dc2626;
+        }
+
+        /* =====================
+           LINKS
+        ====================== */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =====================
+           RESPONSIVE
+        ====================== */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+
+        form {
+        margin-top: 10px;
+    }
+
+    /* INPUT FIELDS */
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 6px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #334155;
+        background: #0f172a;
+        color: #e5e7eb;
+        font-size: 14px;
+        outline: none;
+    }
+
+    /* PLACEHOLDER COLOR */
+    input::placeholder {
+        color: #94a3b8;
+    }
+
+    /* LABELS */
+    label {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        color: #cbd5e1;
+        font-size: 14px;
+    }
+
+    /* FORM CARD FIX */
+    form {
+        background: #111827;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    /* SUBMIT BUTTON */
+    button[type="submit"] {
+        background: #3b82f6;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background: #2563eb;
+    }
+
+    * {
+        color: #e5e7eb !important;
+    }
+
+    input, select, textarea {
+        color: #ffffff !important;
+        background-color: #0f172a !important;
+        border: 1px solid #334155 !important;
+    }
+
+    .navbar {
+        background: linear-gradient(90deg, #6366f1, #22c55e);
+        padding: 15px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* LINKS IN NAVBAR */
+    .nav-link {
+        color: white;
+        margin-left: 15px;
+        text-decoration: none;
+        font-size: 15px;
+        padding: 6px 10px;
+        border-radius: 6px;
+        transition: 0.2s;
+    }
+
+    .nav-link:hover {
+        background: rgba(255,255,255,0.2);
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+        .navbar form {
+        margin: 0;
+        padding: 0;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .navbar form button {
+        margin: 0;
+    }
+     </style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        Lead Management System
+    </div>
+
+    <div class="nav-menu">
+        <a href="/products/" class="nav-link">Products</a>
+        <a href="/regions/" class="nav-link">Regions</a>
+        <a href="/leads/" class="nav-link">Leads</a>
+    </div>
+
+    <div class="nav-right">
+
+        <span>
+            Welcome {{ user.username }}
+        </span>
+
+        <form method="post"
+              action="{% url 'logout' %}"
+              style="display:inline;">
+            {% csrf_token %}
+
+            <button type="submit"
+                    class="btn btn-delete">
+                Logout
+            </button>
+        </form>
+
+    </div>
+
+</div>
+<div class="container">
+
+    {% if messages %}
+        {% for message in messages %}
+            <div style="
+                padding:12px;
+                margin-bottom:15px;
+                border-radius:6px;
+                background:#166534;
+                color:white !important;
+            ">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+</body>
+</html>

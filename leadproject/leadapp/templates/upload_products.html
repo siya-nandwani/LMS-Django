@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="card">
+
+    <h2>Upload Products Excel</h2>
+
+
+    <form method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+
+        {% for field in form %}
+
+            <div style="margin-bottom: 12px;">
+
+                <label style="display:block; margin-bottom:5px; color:#e5e7eb;">
+                    {{ field.label }}
+                </label>
+
+
+                {{ field }}
+
+
+                {% if field.errors %}
+
+                    <div style="color:red; font-size:12px;">
+
+                        {{ field.errors }}
+
+                    </div>
+
+                {% endif %}
+
+
+            </div>
+
+        {% endfor %}
+
+
+
+        <button type="submit" class="btn btn-edit">
+            Upload
+        </button>
+
+
+    </form>
+
+
+
+    {% if errors %}
+
+        <div style="color:red; margin-top:15px;">
+
+            <h4>
+                Errors:
+            </h4>
+
+
+            <ul>
+
+                {% for error in errors %}
+
+                    <li>
+                        {{ error }}
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+
+        </div>
+
+    {% endif %}
+
+
+</div>
+
+{% endblock %}

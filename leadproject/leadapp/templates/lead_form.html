@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+
+    <h2>Lead Form</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <!-- Non-field errors -->
+        {% if form.non_field_errors %}
+            <div style="color:red; margin-bottom:15px;">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        {% for field in form %}
+            <div style="margin-bottom:15px;">
+
+                <label for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                </label>
+
+                {{ field }}
+
+                {% if field.errors %}
+                    <div style="
+                        color:red;
+                        font-size:14px;
+                        margin-top:5px;
+                    ">
+                        {% for error in field.errors %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-edit">
+            Save
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+2026-06-23 12:44:37,709 | ERROR | Internal Server Error: /products/
+Traceback (most recent call last):
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\views.py", line 321, in product_list
+    return render(request, 'product_list.html', {'products': products})
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\base.py", line 166, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\loader_tags.py", line 135, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\loader_tags.py", line 132, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\loader_tags.py", line 110, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\base.py", line 157, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\base.py", line 199, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\base.py", line 585, in parse
+    raise self.error(token, e)
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\base.py", line 583, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\template\loader_tags.py", line 229, in do_block
+    raise TemplateSyntaxError(
+        "'%s' tag with name '%s' appears more than once" % (bits[0], block_name)
+    )
+django.template.exceptions.TemplateSyntaxError: Template: C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\templates\base.html, 'block' tag with name 'content' appears more than once
+2026-06-23 12:47:18,320 | ERROR | Status Code: 400 | Delete Product Page | Integrity Error | ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The DELETE statement conflicted with the REFERENCE constraint "FK__LEAD__ProductID__59FA5E80". The conflict occurred in database "LeadManagementDB", table "dbo.LEAD", column \'ProductID\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')
+2026-06-23 12:47:20,801 | ERROR | Status Code: 400 | Delete Product Page | Integrity Error | ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The DELETE statement conflicted with the REFERENCE constraint "FK__LEAD__ProductID__59FA5E80". The conflict occurred in database "LeadManagementDB", table "dbo.LEAD", column \'ProductID\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')
+2026-06-23 12:51:36,313 | ERROR | Status Code: 400 | Delete Product Page | Product 1 is used by leads
+2026-06-23 12:51:43,588 | ERROR | Status Code: 400 | Delete Product Page | Product 12 is used by leads
+2026-06-23 12:51:54,915 | ERROR | Status Code: 400 | Delete Region Page | Region 2 is used by leads
+2026-06-23 12:56:17,023 | ERROR | Status Code: 400 | Delete Product Page | Product 1 is used by leads
+2026-06-23 12:57:03,016 | ERROR | Status Code: 400 | Delete Region Page | Region 1 is used by leads
+2026-06-23 12:58:34,276 | ERROR | Status Code: 500 | Add Lead Page | division by zero
+Traceback (most recent call last):
+  File "C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\views.py", line 782, in add_lead
+    x=10/0
+      ~~^~
+ZeroDivisionError: division by zero
+2026-06-23 12:58:51,674 | ERROR | Status Code: 500 | Add Lead Page | division by zero
+Traceback (most recent call last):
+  File "C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\views.py", line 782, in add_lead
+    x=10/0
+      ~~^~
+ZeroDivisionError: division by zero
+2026-06-23 13:02:48,514 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-23 13:02:48,560 | ERROR | Status Code: 400 | Delete Product Page | Product 1 is used by leads

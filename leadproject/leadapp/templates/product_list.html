@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+
+    <h2>Products</h2>
+
+    <a href="/products/add/">
+        <button class="btn btn-add">+ Add Product</button>
+    </a>
+    <a href="{% url 'upload_products' %}">
+        <button class="btn btn-add">
+            Upload Products Excel
+        </button>
+    </a>
+    <div class="search-box">
+        <form method="GET">
+            <input type="text"
+                name="search"
+                placeholder="Search Product..."
+                value="{{ request.GET.search }}">
+            <button type="submit">
+                Search
+            </button>
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for p in products %}
+        <tr>
+            <td>{{ p.productid }}</td>
+            <td>{{ p.productname }}</td>
+            <td>{{ p.categoryid }}</td>
+            <td>{{ p.is_active }}</td>
+            <td>
+                <a href="/products/edit/{{ p.productid }}/">
+                    <button class="btn btn-edit">Edit</button>
+                </a>
+
+                <a href="/products/delete/{{ p.productid }}/">
+                    <button class="btn btn-delete">Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% endblock %}

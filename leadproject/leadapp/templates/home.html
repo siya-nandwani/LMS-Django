@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Lead Management System</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="dashboard">
+
+<div class="header">
+    <h1>Lead Management System</h1>
+    <p>Manage products, regions and leads</p>
+</div>
+
+<div class="card-container">
+
+    <div class="card">
+        <h2>Products</h2>
+        <p>Create, update and manage product records.</p>
+        <a href="/products/" class="btn">Open Products</a>
+    </div>
+
+    <div class="card">
+        <h2>Regions</h2>
+        <p>Manage regions and their associated territories.</p>
+        <a href="/regions/" class="btn">Open Regions</a>
+    </div>
+
+    <div class="card">
+        <h2>Leads</h2>
+        <p>Track customer leads and business opportunities.</p>
+        <a href="/leads/" class="btn">Open Leads</a>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

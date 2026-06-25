@@ -1,0 +1,125 @@
+Unexpected error while adding lead
+Traceback (most recent call last):
+  File "C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\views.py", line 359, in add_lead
+    x = 10 / 0
+        ~~~^~~
+ZeroDivisionError: division by zero
+Error while adding product
+Traceback (most recent call last):
+  File "C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\views.py", line 112, in add_product_api
+    x = 10 / 0
+        ~~~^~~
+ZeroDivisionError: division by zero
+Internal Server Error: /api/products/add/
+Error while adding product
+Traceback (most recent call last):
+  File "C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\views.py", line 112, in add_product_api
+    x = 10 / 0
+        ~~~^~~
+ZeroDivisionError: division by zero
+Internal Server Error: /api/products/add/
+Error while adding product
+Traceback (most recent call last):
+  File "C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\views.py", line 112, in add_product_api
+    x = 10 / 0
+        ~~~^~~
+ZeroDivisionError: division by zero
+Internal Server Error: /api/products/add/
+Error while adding product
+Traceback (most recent call last):
+  File "C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\views.py", line 112, in add_product_api
+    x = 10 / 0
+        ~~~^~~
+ZeroDivisionError: division by zero
+Internal Server Error: /api/products/add/
+
+2026-06-23 13:05:33,307 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-23 13:05:33,325 | ERROR | Status Code: 400 | Delete Product Page | Product 1 is used by leads
+2026-06-23 13:05:56,564 | ERROR | Status Code: 500 | Add Lead Page | division by zero
+Traceback (most recent call last):
+  File "C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\views.py", line 782, in add_lead
+    x=10/0
+      ~~^~
+ZeroDivisionError: division by zero
+2026-06-23 13:06:11,106 | ERROR | Status Code: 500 | Add Lead Page | division by zero
+Traceback (most recent call last):
+  File "C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\views.py", line 782, in add_lead
+    x=10/0
+      ~~^~
+ZeroDivisionError: division by zero
+2026-06-23 13:27:51,823 | ERROR | Status Code: 400 | Delete Product API | Integrity Error | ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The DELETE statement conflicted with the REFERENCE constraint "FK__LEAD__ProductID__59FA5E80". The conflict occurred in database "LeadManagementDB", table "dbo.LEAD", column \'ProductID\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')
+2026-06-23 13:28:11,284 | ERROR | Status Code: 400 | Delete Region API | Integrity Error | ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The DELETE statement conflicted with the REFERENCE constraint "FK__TERRITORY__Regio__5165187F". The conflict occurred in database "LeadManagementDB", table "dbo.TERRITORY", column \'RegionID\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')
+2026-06-23 13:28:29,767 | ERROR | Status Code: 500 | Delete Lead API | ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The DELETE statement conflicted with the REFERENCE constraint "FK__LEAD_FOLL__LeadI__5EBF139D". The conflict occurred in database "LeadManagementDB", table "dbo.LEAD_FOLLOW_UP", column \'LeadID\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')
+Traceback (most recent call last):
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\mssql\base.py", line 773, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+pyodbc.IntegrityError: ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The DELETE statement conflicted with the REFERENCE constraint "FK__LEAD_FOLL__LeadI__5EBF139D". The conflict occurred in database "LeadManagementDB", table "dbo.LEAD_FOLLOW_UP", column \'LeadID\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nandw\OneDrive\Desktop\PMS PYTHON\leadproject\leadapp\views.py", line 573, in delete_lead_api
+    lead.delete()
+    ~~~~~~~~~~~^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\models\base.py", line 1300, in delete
+    return collector.delete()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\models\deletion.py", line 452, in delete
+    count = sql.DeleteQuery(model).delete_batch(
+        [instance.pk], self.using
+    )
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\models\sql\subqueries.py", line 43, in delete_batch
+    num_deleted += self.do_query(
+                   ~~~~~~~~~~~~~^
+        self.get_meta().db_table, self.where, using=using
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\models\sql\subqueries.py", line 25, in do_query
+    return self.get_compiler(using).execute_sql(ROW_COUNT)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\nandw\myenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\nandw\myenv\Lib\site-packages\mssql\base.py", line 773, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The DELETE statement conflicted with the REFERENCE constraint "FK__LEAD_FOLL__LeadI__5EBF139D". The conflict occurred in database "LeadManagementDB", table "dbo.LEAD_FOLLOW_UP", column \'LeadID\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')
+2026-06-23 13:28:30,100 | ERROR | Internal Server Error: /api/leads/delete/1/
+2026-06-23 17:50:49,913 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-23 17:50:53,796 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-23 17:50:55,364 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-23 17:50:55,383 | ERROR | Status Code: 400 | Delete Product Page | Product 1 is used by leads
+2026-06-23 18:06:12,239 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-23 18:06:15,141 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-23 18:06:18,265 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-23 18:06:18,283 | ERROR | Status Code: 400 | Delete Product Page | Product 12 is used by leads
+2026-06-24 15:52:44,439 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-24 15:52:46,752 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-24 21:53:55,344 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-24 21:53:58,368 | ERROR | DELETE PRODUCT VIEW CALLED
+2026-06-24 21:53:58,382 | ERROR | Status Code: 400 | Delete Product Page | Product 1 is used by leads

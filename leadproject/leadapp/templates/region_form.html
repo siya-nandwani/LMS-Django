@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="card">
+
+    <h2>Region Form</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div style="margin-bottom: 12px;">
+
+                <label style="display:block; margin-bottom:5px; color:#e5e7eb;">
+                    {{ field.label }}
+                </label>
+
+                {{ field }}
+
+                {% if field.errors %}
+                    <div style="color:red; font-size:12px;">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-edit">
+            Save
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
