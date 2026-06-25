@@ -383,7 +383,7 @@ python manage.py runserver
 ### Open Browser
 
 ```text
-http://127.0.0.1:8000/
+ http://127.0.0.1:8000/
 ```
 
 ---
