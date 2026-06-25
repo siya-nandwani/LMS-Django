@@ -337,7 +337,7 @@ leadproject/
 │   └── wsgi.py
 │
 ├── manage.py
-└── requirements.txt
+
 ```
 
 ---
